@@ -776,7 +776,7 @@ protected:
   std::any capture(unsigned idx) const override;
 
   /// The source arguments.
-  std::tuple<Args...> const& _tuple;
+  std::tuple<Args...> const _tuple;
 };
 
 template<typename... Args>
