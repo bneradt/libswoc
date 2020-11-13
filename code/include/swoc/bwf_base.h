@@ -599,7 +599,7 @@ Arg_Formatter(BufferWriter& w, Spec const& spec, TUPLE const& args) {
 template<typename TUPLE, size_t... N>
 ArgFormatterSignature<TUPLE> *
 Get_Arg_Formatter_Array(std::index_sequence<N...>) {
-  ArgFormatterSignature<TUPLE> fa[sizeof...(N)] = {&bwf::Arg_Formatter<TUPLE, N>...};
+  static const ArgFormatterSignature<TUPLE> fa[sizeof...(N)] = {&bwf::Arg_Formatter<TUPLE, N>...};
   return fa;
 }
 
