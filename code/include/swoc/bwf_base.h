@@ -597,7 +597,7 @@ Arg_Formatter(BufferWriter& w, Spec const& spec, TUPLE const& args) {
 /// accessed via standard array access in contrast to templated tuple access. The actual array is
 /// static and therefore at run time the only operation is loading the address of the array.
 template<typename TUPLE, size_t... N>
-ArgFormatterSignature<TUPLE> *
+ArgFormatterSignature<TUPLE> const *
 Get_Arg_Formatter_Array(std::index_sequence<N...>) {
   static const ArgFormatterSignature<TUPLE> fa[sizeof...(N)] = {&bwf::Arg_Formatter<TUPLE, N>...};
   return fa;
