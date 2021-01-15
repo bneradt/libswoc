@@ -109,6 +109,7 @@ public:
 
   /// Construct empty instance.
   Lexicon();
+  Lexicon(E e);
 
   /** Construct with names, possible secondary values, and optional default handlers.
    *
@@ -477,6 +478,7 @@ Lexicon<E>::Item::ValueLinkage::equal(E lhs, E rhs) {
 // Lexicon
 
 template<typename E> Lexicon<E>::Lexicon() {}
+template<typename E> Lexicon<E>::Lexicon(E e) { this->set_default(e); }
 
 template<typename E>
 Lexicon<E>::Lexicon(const std::initializer_list<Definition>& items, DefaultHandler handler_1
