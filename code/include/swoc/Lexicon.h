@@ -156,8 +156,7 @@ public:
    *
    * @see set_default.
    */
-  explicit Lexicon(DefaultHandler handler_1);
-  explicit Lexicon(DefaultHandler handler_1, DefaultHandler handler_2);
+  explicit Lexicon(DefaultHandler handler_1, DefaultHandler handler_2 = DefaultHandler{});
 
   Lexicon(self_type && that) = default;
 
@@ -499,13 +498,6 @@ Lexicon<E>::Lexicon(const std::initializer_list<Pair>& items, DefaultHandler han
   }
 
   for (auto&& h : {handler_1, handler_2}) {
-    this->set_default(h);
-  }
-}
-
-template<typename E>
-Lexicon<E>::Lexicon(DefaultHandler handler_1) {
-  for (auto&& h : {handler_1, DefaultHandler{}}) {
     this->set_default(h);
   }
 }
